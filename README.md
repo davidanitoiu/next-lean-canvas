@@ -60,3 +60,60 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Typescript & Jest Support
+
+``` bash
+#Typescript
+yarn add --dev typescript @types/react @types/node
+
+#Jest
+yarn add --dev jest @types/jest @testing-library/react @testing-library/jest-dom ts-jest jest-transform-css
+```
+
+tsconfig.jest.json
+
+``` json
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "target": "es5"
+    }
+}
+```
+
+jest.config.js
+
+``` javascript
+module.exports = {
+  preset: 'ts-jest',
+  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
+  transform: {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  moduleFileExtensions: [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json",
+    "node",
+    "module.css"
+  ],
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "jest-transform-css"
+  },
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.jest.json',
+    },
+  },
+};
+```

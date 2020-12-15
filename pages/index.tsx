@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
@@ -19,7 +20,7 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <div className={styles.grid}>
+        <div className={styles.grid} id="grid">
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
