@@ -91,29 +91,33 @@ jest.config.js
 
 ``` javascript
 module.exports = {
-  preset: 'ts-jest',
-  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
-  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
-  transform: {
-    "^.+\\.tsx?$": "ts-jest"
-  },
-  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-  moduleFileExtensions: [
-    "ts",
-    "tsx",
-    "js",
-    "jsx",
-    "json",
-    "node",
-    "module.css"
-  ],
-  moduleNameMapper: {
-    "\\.(css|less|scss|sass)$": "jest-transform-css"
-  },
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.jest.json',
+    preset: 'ts-jest',
+    testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+    setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
+    transform: {
+        "^.+\\.tsx?$": "ts-jest"
     },
-  },
+    testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    moduleFileExtensions: [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "node",
+        "module.css"
+    ],
+    moduleNameMapper: {
+        "\\.(css|less|scss|sass)$": "jest-transform-css"
+    },
+    globals: {
+        'ts-jest': {
+            tsconfig: '<rootDir>/tsconfig.jest.json',
+        },
+    },
 };
 ```
+
+## TailwindCSS
+
+Installation guide - [here](https://tailwindcss.com/docs/guides/nextjs)
