@@ -17,7 +17,9 @@ function TextArea({ label, placeholder }: TextArea) {
             <textarea
                 id={name}
                 name={name}
-                placeholder={placeholder} />
+                placeholder={placeholder}
+                defaultValue=""
+            />
         </>
     )
 }
