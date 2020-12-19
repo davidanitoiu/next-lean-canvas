@@ -19,6 +19,7 @@ function TextArea({ label, placeholder, first }: TextArea) {
                 name={name}
                 placeholder={placeholder}
                 defaultValue=""
+                className={"resize-none w-full"}
             />
         </div>
     )

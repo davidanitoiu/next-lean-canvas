@@ -12,7 +12,7 @@ function Home() {
     const formDataEntries = new FormData(e.currentTarget).entries();
     const formValues = Object.fromEntries(formDataEntries);
 
-    alert(JSON.stringify(formValues, 0, 2));
+    alert(JSON.stringify(formValues, undefined, 2));
 
   }
 
