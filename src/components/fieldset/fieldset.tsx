@@ -10,12 +10,13 @@ interface FieldSet {
 function FieldSet({ fields, ...props }: FieldSet) {
 
     return (
-        <fieldset {...props}>
-            {map(fields, ({ label, placeholder }: TextArea) => (
+        <fieldset {...props} className={"grid p-1 border-gray-200 border-2"} style={{ gridTemplateRows: `repeat(${fields.length}, minmax(100px, 1fr))`}}>
+            {map(fields, ({ label, placeholder }: TextArea, index) => (
                 <TextArea
                     key={label}
                     label={label}
                     placeholder={placeholder}
+                    first={index === 0}
                 />
             ))}
         </fieldset>

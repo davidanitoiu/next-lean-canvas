@@ -4,22 +4,23 @@ import { kebabCase } from 'lodash';
 interface TextArea {
     label: string;
     placeholder: string;
+    first?: boolean;
 }
 
-function TextArea({ label, placeholder }: TextArea) {
+function TextArea({ label, placeholder, first }: TextArea) {
 
     const name = kebabCase(label);
 
     return (
-        <>
+        <div className={`grid grid-rows-textarea ${first ? "" : "mt-2"}`}>
             <label
-                htmlFor={name}>{label}</label>
+                htmlFor={name}><strong>{label}</strong></label>
             <textarea
                 name={name}
                 placeholder={placeholder}
                 defaultValue=""
             />
-        </>
+        </div>
     )
 }
 

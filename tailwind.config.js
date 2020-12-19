@@ -1,8 +1,12 @@
 module.exports = {
   purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateRows: {
+        'textarea': 'auto 1fr',
+      }
+    },
   },
   variants: {
     extend: {},
