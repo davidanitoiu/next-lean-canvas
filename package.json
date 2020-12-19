@@ -9,6 +9,7 @@
         "test": "jest --watch"
     },
     "dependencies": {
+        "@animxyz/core": "^0.1.1",
         "autoprefixer": "^10.1.0",
         "next": "10.0.3",
         "react": "17.0.1",

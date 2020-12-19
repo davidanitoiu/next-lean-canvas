@@ -1,3 +1,8 @@
+/* AnimXYZ */
+@import '@animxyz/core';
+@include xyz-all;
+
+/* TailwindCSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
