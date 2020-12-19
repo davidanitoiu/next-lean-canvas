@@ -15,7 +15,6 @@ function TextArea({ label, placeholder }: TextArea) {
             <label
                 htmlFor={name}>{label}</label>
             <textarea
-                id={name}
                 name={name}
                 placeholder={placeholder}
                 defaultValue=""

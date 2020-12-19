@@ -4,6 +4,7 @@ import { map } from "lodash";
 
 interface FieldSet {
     fields: TextArea[];
+    id?: string;
 }
 
 function FieldSet({ fields, ...props }: FieldSet) {

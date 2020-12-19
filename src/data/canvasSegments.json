@@ -1,0 +1,80 @@
+{
+    "customer-segments": {
+        "id": "customer-segments",
+        "fields": [{
+                "label": "Customer Segments",
+                "placeholder": "List your target customers and users"
+            },
+            {
+                "label": "Early Adopters",
+                "placeholder": "List the characteristics of your ideal customers"
+            }
+        ]
+    },
+    "problem": {
+        "id": "problem",
+        "fields": [{
+                "label": "Problem",
+                "placeholder": "List your customer's top 3 problems"
+            },
+            {
+                "label": "Existing alternatives",
+                "placeholder": "List how these problems are solved today"
+            }
+        ]
+    },
+    "revenue-streams": {
+        "id": "revenue-streams",
+        "fields": [{
+            "label": "Revenue Streams",
+            "placeholder": "List your sources of revenue"
+        }]
+    },
+    "solution": {
+        "id": "solution",
+        "fields": [{
+            "label": "Solution",
+            "placeholder": ""
+        }]
+    },
+    "unique-value-proposition": {
+        "id": "unique-value-proposition",
+        "fields": [{
+                "label": "Unique Value Proposition",
+                "placeholder": "Single, clear, compelling message that turns an unaware visitor into an interested prospect"
+            },
+            {
+                "label": "High-Level Concept",
+                "placeholder": "List your X for Y analogy (e.g. Youtube = Flickr for videos)"
+            }
+        ]
+    },
+    "channels": {
+        "id": "channels",
+        "fields": [{
+            "label": "Channels",
+            "placeholder": "List your path to customers"
+        }]
+    },
+    "key-metrics": {
+        "id": "key-metrics",
+        "fields": [{
+            "label": "Key Metrics",
+            "placeholder": "List the key numbers that tell you how your business is doing"
+        }]
+    },
+    "cost-structure": {
+        "id": "cost-structure",
+        "fields": [{
+            "label": "Cost Structure",
+            "placeholder": "List your fixed and variable costs"
+        }]
+    },
+    "unfair-advantage": {
+        "id": "unfair-advantage",
+        "fields": [{
+            "label": "Unfair Advantage",
+            "placeholder": "Something that can not be easily copied or bought"
+        }]
+    }
+}
