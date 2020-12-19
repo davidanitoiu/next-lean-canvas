@@ -12,7 +12,7 @@ function Home() {
     const formDataEntries = new FormData(e.currentTarget).entries();
     const formValues = Object.fromEntries(formDataEntries);
 
-    console.dir(formValues);
+    alert(JSON.stringify(formValues, undefined, 2));
 
   }
 
@@ -23,9 +23,11 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <form onSubmit={handleSubmit}>
-          <button>Submit</button>
+      <main className="h-full w-full dark">
+        <form onSubmit={handleSubmit} className="grid gap-2 p-4 h-full w-full">
+          <div id="controls">
+            <button>Submit</button>
+          </div>
           {
             map(canvasSegments, ({ id, fields }) => (
               <FieldSet key={id} id={id} fields={fields} />
