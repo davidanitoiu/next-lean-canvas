@@ -24,7 +24,7 @@ function Home() {
       </Head>
 
       <main className="h-full w-full dark">
-        <form onSubmit={handleSubmit} className="grid gap-2 p-4 h-full w-full">
+        <form onSubmit={handleSubmit} className="grid gap-2 p-4 h-full w-full" xyz="fade small stagger-rev-1">
           <div id="controls">
             <button>Submit</button>
           </div>

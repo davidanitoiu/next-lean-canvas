@@ -1,16 +1,20 @@
-import * as React from 'react';
 import { TextArea } from "components";
 import { map } from "lodash";
+import * as React from 'react';
 
 interface FieldSet {
     fields: TextArea[];
-    id?: string;
+    id: string;
 }
 
-function FieldSet({ fields, ...props }: FieldSet) {
-
+function FieldSet({ id, fields, ...props }: FieldSet) {
     return (
-        <fieldset {...props} className={"grid p-1 border-gray-200 border-2"} style={{ gridTemplateRows: `repeat(${fields.length}, minmax(100px, 1fr))`}}>
+        <fieldset
+            id={id}
+            className={`grid p-1 border-gray-200 border-2 xyz-in`}
+            style={{ gridTemplateRows: `repeat(${fields.length}, minmax(100px, 1fr))` }}
+            {...props}
+        >
             {map(fields, ({ label, placeholder }: TextArea, index) => (
                 <TextArea
                     key={label}
