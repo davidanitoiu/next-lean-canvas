@@ -121,3 +121,8 @@ module.exports = {
 ## TailwindCSS
 
 Installation guide - [here](https://tailwindcss.com/docs/guides/nextjs)
+
+## AnimXYZ
+
+Installation guide - [here](https://animxyz.com/docs/)
+
