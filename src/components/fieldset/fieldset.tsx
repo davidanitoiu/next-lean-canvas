@@ -1,13 +1,20 @@
 import { TextArea } from "components";
-import { map } from "lodash";
+import { kebabCase, map } from "lodash";
 import * as React from 'react';
 
 interface FieldSet {
-    fields: TextArea[];
+    onChange: ((event: React.ChangeEvent<HTMLTextAreaElement>) => void) | undefined;
+    fields: {
+        label: string,
+        placeholder: string
+    }[];
     id: string;
+    values: {
+        [key: string]: string;
+    };
 }
 
-function FieldSet({ id, fields, ...props }: FieldSet) {
+function FieldSet({ id, fields, onChange, values, ...props }: FieldSet) {
     return (
         <fieldset
             id={id}
@@ -21,6 +28,8 @@ function FieldSet({ id, fields, ...props }: FieldSet) {
                     label={label}
                     placeholder={placeholder}
                     first={index === 0}
+                    onChange={onChange}
+                    value={values[kebabCase(label)]}
                 />
             ))}
         </fieldset>

@@ -10,15 +10,37 @@
 @tailwind utilities;
 
 /* Project styling */
+.print {
+    display: none;
+}
+
+@media screen and (max-width: 999px) {
+    form {
+        grid-template-columns: 3fr;
+    }
+    form fieldset {
+        grid-column-start: 1;
+        grid-column-end: span 3;
+    }
+    form #branding {
+        grid-area: 1 / 1 / 1 / span 2;
+    }
+    form #controls {
+        grid-area: 1 / 3 / 1 / 3;
+        display: flex;
+    }
+}
 
 @media screen and (min-width: 1000px) {
     form {
         grid-template-rows: auto repeat(3, 1fr);
     }
-    form #controls {
-        grid-area: 1 / 24 / 1 / 30;
+    form #branding {
+        grid-area: 1 / 1 / 1 / 12;
         display: flex;
-        flex-direction: row-reverse;
+    }
+    form #controls {
+        grid-area: 1 / 12 / 1 / 30;
     }
     form #problem {
         grid-area: 2 / 1 / span 2 / 6;
@@ -46,5 +68,64 @@
     }
     form #revenue-streams {
         grid-area: 4 / 15 / span 1 / 30;
+    }
+}
+
+@page {
+    size: A4 portrait;
+    margin: 2cm;
+    @top-center {
+        counter-increment: page;
+        content: counter(page);
+    }
+}
+@page :first {
+    margin: 1cm 2cm;
+}
+
+@media print {
+    body {
+        overflow: visible !important;
+        height: auto;
+        counter-reset: page;
+    }
+    main {
+        @apply bg-white dark:bg-white dark:text-black !important;
+    }
+    form {
+        display: none !important;
+    }
+    a::after {
+        content: " (" attr(href) ")";
+      }
+    .print {
+        display: inline !important;
+        width: calc(70*(14px/1.618));
+        height: 295mm;   
+    }
+    .print h1 {
+        font-size: 28px;
+    }
+    .print h2 {
+        font-size: 24px;
+    }
+    .print article {
+        page-break-before: always;
+        break-before: always;
+        margin-top: -1px;
+        top: 1;    
+    }
+    .print h3 {
+        font-size: 21px;
+    }
+    .print article p {
+        font-size: 14px;
+        line-height: 1.618;
+        text-align: justify;
+        page-break-inside: auto;
+        break-inside: auto;
+    }
+    .print article p:empty::before {
+        content: "N/A"
     }
 }
