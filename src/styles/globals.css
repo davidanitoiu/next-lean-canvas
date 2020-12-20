@@ -132,9 +132,6 @@
     .print h1 {
         font-size: 28px;
     }
-    .print h2 {
-        font-size: 24px;
-    }
     .print article {
         page-break-before: always;
         break-before: always;
