@@ -1,6 +1,6 @@
 import { FieldSet } from 'components';
 import { canvasSegments } from 'data';
-import { capitalize, kebabCase, keyBy, map, reduce, words } from 'lodash';
+import { capitalize, isEmpty, isEqual, kebabCase, map, reduce, words } from 'lodash';
 import Head from 'next/head';
 import * as React from 'react';
 
@@ -33,6 +33,22 @@ function Home() {
     }));
   }
 
+  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+
+    if (isEmpty(files)) return;
+
+    const file = files!.item(0);
+    const uploadedJsonString = await file?.text();
+    const uploadedJsonObj = JSON.parse(uploadedJsonString!) as { [key: string]: string };
+
+    if (!isEqual(Object.keys(uploadedJsonObj), segments)) {
+      console.error("Invalid file upload");
+    };
+
+    setFormValues(uploadedJsonObj);
+  }
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -53,10 +69,14 @@ function Home() {
           <div id="branding" className="ml-4 xyz-in">
             <h1 className="font-bold text-3xl">Lean Canvas</h1>
           </div>
-          <div id="controls" className="mx-4 w-full xyz-in flex justify-end pr-8">
-            <button className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all"}>🖨</button>
-            <button className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all ml-2"} onClick={handleDarkMode}>{darkMode ? "🌙" : "☀"}</button>
-            <input className={"pl-2 ml-6  bg-gray-100 dark:bg-gray-700 placeholder-gray-700 dark:placeholder-gray-100"} name="title" value={title} onChange={handleTitleChange} placeholder="Your Company Name" />
+          <div id="controls" className="mx-4 w-full xyz-in pr-8">
+            <a className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all btn"} download="lean-canvas.json" href={`data:application/octet-stream,${JSON.stringify(formValues, undefined, 2)}`} title="Export">⭳</a>
+            <label className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all btn ml-2"} title="Import">⭱
+              <input hidden type="file" onChange={handleUpload} title="Upload" />
+            </label>
+            <button className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all ml-2 btn"} title="Print">🖨</button>
+            <button className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all ml-2 btn"} onClick={handleDarkMode} title={darkMode ? "Toggle Light" : "Toggle Dark"}>{darkMode ? "🌙" : "☀"}</button>
+            <input className={"pl-2 ml-6  bg-gray-100 dark:bg-gray-700 placeholder-gray-700 dark:placeholder-gray-100 rounded"} name="title" value={title} onChange={handleTitleChange} placeholder="Your Company Name" />
           </div>
           {
             map(canvasSegments, ({ id, fields }) => (

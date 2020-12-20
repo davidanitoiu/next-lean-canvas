@@ -16,23 +16,22 @@ interface FieldSet {
 
 function FieldSet({ id, fields, onChange, values, ...props }: FieldSet) {
     return (
-        <fieldset
-            id={id}
-            className={`grid p-1 border-gray-200 dark:border-gray-700 border-2 rounded xyz-in`}
-            style={{ gridTemplateRows: `repeat(${fields.length}, minmax(100px, 1fr))` }}
-            {...props}
-        >
-            {map(fields, ({ label, placeholder }: TextArea, index) => (
-                <TextArea
-                    key={label}
-                    label={label}
-                    placeholder={placeholder}
-                    first={index === 0}
-                    onChange={onChange}
-                    value={values[kebabCase(label)]}
-                />
-            ))}
-        </fieldset>
+            <section
+                className={`${id} grid p-1 border-gray-200 dark:border-gray-700 border-2 rounded xyz-in`}
+                style={{ gridTemplateRows: `repeat(${fields.length}, minmax(100px, 1fr))` }}
+                {...props}
+            >
+                {map(fields, ({ label, placeholder }: TextArea, index) => (
+                    <TextArea
+                        key={label}
+                        label={label}
+                        placeholder={placeholder}
+                        first={index === 0}
+                        onChange={onChange}
+                        value={values[kebabCase(label)]}
+                    />
+                ))}
+            </section>
     )
 }
 
