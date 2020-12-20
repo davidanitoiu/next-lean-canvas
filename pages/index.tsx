@@ -53,12 +53,10 @@ function Home() {
           <div id="branding" className="ml-4 xyz-in">
             <h1 className="font-bold text-3xl">Lean Canvas</h1>
           </div>
-          <div id="controls" className="mx-4 flex justify-between w-full xyz-in">
-            <input className={"pl-2  bg-gray-100 dark:bg-gray-700 placeholder-gray-700 dark:placeholder-gray-100"} name="title" value={title} onChange={handleTitleChange} placeholder="Your Company Name" />
-            <div className={"mx-6"}>
-              <button className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all mr-2"} onClick={handleDarkMode}>{darkMode ? "🌙" : "☀"}</button>
-              <button className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all"}>🖨</button>
-            </div>
+          <div id="controls" className="mx-4 w-full xyz-in flex justify-end pr-8">
+            <button className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all"}>🖨</button>
+            <button className={"hover:bg-purple-500 bg-purple-800 rounded-full w-10 h-10 transition-all ml-2"} onClick={handleDarkMode}>{darkMode ? "🌙" : "☀"}</button>
+            <input className={"pl-2 ml-6  bg-gray-100 dark:bg-gray-700 placeholder-gray-700 dark:placeholder-gray-100"} name="title" value={title} onChange={handleTitleChange} placeholder="Your Company Name" />
           </div>
           {
             map(canvasSegments, ({ id, fields }) => (
